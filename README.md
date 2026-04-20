@@ -24,5 +24,3 @@ Entries can be categorized by type (internship, project, travel, personal, etc.)
 
 The app is a single HTML file with no build step and no dependencies.
 
-**To run locally:**
-```bash
