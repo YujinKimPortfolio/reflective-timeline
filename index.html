@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root {
   --bg: #faf6ef;
@@ -78,12 +79,14 @@ body::before {
 
 .brand {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 26px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
   line-height: 1.1;
   color: var(--ink);
   margin-bottom: 4px;
   padding: 0 10px;
+  letter-spacing: -0.01em;
 }
 
 .brand-sub {
@@ -122,7 +125,7 @@ body::before {
 
 .sidebar-search input::placeholder {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
 }
 
 .nav-btn {
@@ -263,7 +266,8 @@ body::before {
   color: var(--ink);
   margin-bottom: 14px;
   max-width: 680px;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .hero .sub {
@@ -294,9 +298,9 @@ body::before {
 .draft-banner .msg strong {
   color: var(--ink);
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 16px;
-  font-weight: 500;
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .draft-banner-actions {
@@ -323,8 +327,9 @@ body::before {
 
 .section-title {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
   letter-spacing: -0.01em;
 }
 
@@ -365,7 +370,7 @@ body::before {
 
 .entry-date {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-style: normal;
   font-size: 16px;
   color: var(--ink-mid);
   letter-spacing: -0.01em;
@@ -437,7 +442,7 @@ body::before {
   padding: 48px 16px;
   text-align: center;
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
   font-family: 'Instrument Serif', serif;
   font-size: 20px;
 }
@@ -454,7 +459,8 @@ body::before {
 
 .compose-intro .text h1 {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
   font-size: clamp(32px, 4.5vw, 44px);
   line-height: 1.1;
   letter-spacing: -0.015em;
@@ -565,7 +571,7 @@ body::before {
 
 .text-input::placeholder {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
   opacity: 0.6;
 }
 
@@ -685,7 +691,7 @@ body::before {
 
 .tag-input::placeholder {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
 }
 
 .reflection-block {
@@ -709,8 +715,9 @@ body::before {
 
 .reflection-header h3 {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
   letter-spacing: -0.01em;
   margin-bottom: 6px;
 }
@@ -729,8 +736,9 @@ body::before {
 
 .reflection-q .q-label {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
   color: var(--ink);
   margin-bottom: 10px;
   line-height: 1.3;
@@ -759,7 +767,7 @@ body::before {
 
 .reflection-q textarea::placeholder {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
 }
 
 .form-actions {
@@ -874,8 +882,9 @@ body::before {
 
 .year-heading {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 46px;
   color: var(--ink-dim);
   margin-bottom: 8px;
   letter-spacing: -0.02em;
@@ -919,7 +928,8 @@ body::before {
   line-height: 1.1;
   letter-spacing: -0.015em;
   margin-bottom: 10px;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .detail-sub {
@@ -943,8 +953,9 @@ body::before {
 
 .detail-q .q {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
   color: var(--ink);
   margin-bottom: 10px;
   line-height: 1.3;
@@ -958,7 +969,7 @@ body::before {
 }
 
 .detail-q .a.empty {
-  font-style: italic;
+  font-style: normal;
   color: var(--ink-dim);
 }
 
@@ -978,8 +989,9 @@ body::before {
 
 .later-notes h3 {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   letter-spacing: -0.01em;
 }
 
@@ -1061,7 +1073,7 @@ body::before {
 
 .add-later-note textarea::placeholder {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
 }
 
 .add-later-note-actions {
@@ -1111,14 +1123,15 @@ body::before {
 
 .dash-card-title {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   letter-spacing: -0.01em;
 }
 
 .dash-empty {
   color: var(--ink-dim);
-  font-style: italic;
+  font-style: normal;
   font-family: 'Instrument Serif', serif;
   font-size: 17px;
   text-align: center;
@@ -1173,7 +1186,7 @@ body::before {
 
 .cloud-tag {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-style: normal;
   color: var(--ink-soft);
   transition: color 0.15s;
   cursor: default;
@@ -1232,7 +1245,8 @@ body::before {
 
 .insight-text {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 600;
   font-size: 26px;
   line-height: 1.4;
   color: var(--ink);
@@ -1270,7 +1284,8 @@ body::before {
 
 .stat-num {
   font-family: 'Instrument Serif', serif;
-  font-size: 36px;
+  font-weight: 700;
+  font-size: 38px;
   line-height: 1;
   color: var(--ink);
   margin-bottom: 6px;
@@ -1283,6 +1298,417 @@ body::before {
   color: var(--ink-dim);
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+/* --- auth screen --- */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: 24px;
+}
+.auth-overlay.open { display: flex; }
+.auth-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 44px 40px;
+  max-width: 460px;
+  width: 100%;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 1;
+}
+.auth-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 14px;
+}
+.auth-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.auth-sub {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.auth-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 16px;
+  color: var(--ink);
+}
+.auth-input:focus {
+  outline: none;
+  border-bottom-color: var(--terracotta);
+}
+.auth-input::placeholder {
+  color: var(--ink-dim);
+}
+.auth-btn {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  background: var(--terracotta);
+  color: #fff;
+  border: 1px solid var(--terracotta);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.auth-btn:hover { background: #a04e30; border-color: #a04e30; }
+.auth-btn:disabled {
+  background: var(--ink-dim);
+  border-color: var(--ink-dim);
+  cursor: not-allowed;
+}
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
+.auth-divider::before, .auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.auth-local-btn {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: 100%;
+}
+.auth-local-btn:hover {
+  background: var(--bg-soft);
+  border-color: var(--ink-dim);
+  color: var(--ink);
+}
+.auth-msg {
+  font-size: 13px;
+  color: var(--sage);
+  background: var(--sage-bg);
+  border: 1px solid var(--sage-soft);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-top: 12px;
+}
+.auth-msg.error {
+  color: var(--terracotta);
+  background: var(--terracotta-bg);
+  border-color: var(--terracotta-soft);
+}
+.auth-footer {
+  margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+/* sign-in chip in sidebar */
+.user-chip {
+  margin: 14px 10px 0;
+  padding: 10px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.user-chip .email {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-mid);
+  word-break: break-all;
+}
+.user-chip .signout {
+  background: none;
+  border: none;
+  color: var(--terracotta);
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 0;
+  text-align: left;
+}
+.user-chip .signout:hover { text-decoration: underline; }
+.user-chip .signin {
+  background: var(--terracotta);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+.user-chip .signin:hover { background: #a04e30; }
+.user-chip .sync-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+}
+.user-chip .sync-status.syncing { color: var(--ochre); }
+.user-chip .sync-status.synced { color: var(--sage); }
+.user-chip .sync-status.error { color: var(--terracotta); }
+
+/* --- donut chart --- */
+.donut-wrap {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.donut-chart {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  height: 200px;
+}
+.donut-chart svg {
+  display: block;
+  transform: rotate(0deg);
+}
+.donut-chart .donut-seg {
+  transition: opacity 0.2s, stroke-width 0.2s;
+  cursor: default;
+}
+.donut-chart:hover .donut-seg { opacity: 0.4; }
+.donut-chart .donut-seg:hover { opacity: 1; stroke-width: 34; }
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.donut-big {
+  font-family: 'Instrument Serif', serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.donut-small {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-top: 6px;
+}
+.donut-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 200px;
+  flex: 1;
+}
+.donut-legend-row {
+  display: grid;
+  grid-template-columns: 12px 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule-soft);
+  font-size: 13px;
+}
+.donut-legend-row:last-child { border-bottom: none; }
+.donut-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+.donut-legend-name {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.donut-legend-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-mid);
+}
+.donut-legend-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-dim);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* --- year evolution --- */
+.yevo-legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--rule);
+}
+.yevo-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.yevo-chart {
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  min-height: 260px;
+}
+.yevo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 48px;
+  flex: 1;
+}
+.yevo-bar {
+  width: 100%;
+  max-width: 56px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: stretch;
+  background: linear-gradient(to top, var(--bg-soft) 0%, transparent 100%);
+  border-radius: 6px 6px 0 0;
+  position: relative;
+}
+.yevo-stack {
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.yevo-col:hover .yevo-stack { transform: translateY(-2px); }
+.yevo-seg {
+  width: 100%;
+  transition: opacity 0.15s;
+  border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+.yevo-seg:first-child { border-bottom: none; }
+.yevo-seg:hover { opacity: 0.75; }
+.yevo-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink-mid);
+}
+.yevo-year {
+  font-family: 'Instrument Serif', serif;
+  font-size: 15px;
+  color: var(--ink-soft);
+  letter-spacing: -0.01em;
+}
+
+/* --- reflection depth --- */
+.depth-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.depth-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 70px;
+  gap: 14px;
+  align-items: center;
+}
+.depth-label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.depth-bar-track {
+  height: 8px;
+  background: var(--bg-muted);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.depth-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.8s ease;
+}
+.depth-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-mid);
+  text-align: right;
+}
+.depth-value .unit {
+  color: var(--ink-dim);
+  font-size: 9px;
+  margin-left: 2px;
 }
 
 /* --- search-view --- */
@@ -1344,8 +1770,9 @@ body::before {
 }
 .shortcuts-box h3 {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   margin-bottom: 18px;
 }
 .shortcuts-row {
@@ -1427,8 +1854,9 @@ body::before {
 }
 .resurface-quote {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
   line-height: 1.45;
   color: var(--ink);
   margin-bottom: 14px;
@@ -1503,8 +1931,9 @@ body::before {
 }
 .empty-hero .mark {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
   color: var(--terracotta-soft);
   line-height: 1;
   margin-bottom: 20px;
@@ -1512,8 +1941,9 @@ body::before {
 }
 .empty-hero h2 {
   font-family: 'Instrument Serif', serif;
-  font-style: italic;
-  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
   margin-bottom: 12px;
   letter-spacing: -0.01em;
 }
@@ -1554,7 +1984,7 @@ body::before {
 }
 .empty-suggest .es-text {
   color: var(--ink-soft);
-  font-style: italic;
+  font-style: normal;
   font-family: 'Instrument Serif', serif;
   font-size: 15px;
   line-height: 1.4;
@@ -1688,9 +2118,12 @@ body::before {
     <div class="sidebar-divider"></div>
 
     <div class="data-actions">
-      <button class="data-btn" onclick="exportData()">Export</button>
       <button class="data-btn" onclick="document.getElementById('import-file').click()">Import</button>
       <input type="file" id="import-file" style="display:none" accept=".json" onchange="importData(event)">
+    </div>
+
+    <div class="user-chip" id="user-chip">
+      <button class="signin" onclick="openAuth()">Sign in to back up</button>
     </div>
 
     <div class="sidebar-meta">
@@ -1836,7 +2269,7 @@ body::before {
     <section class="view" id="view-search">
       <div class="search-intro">
         <div class="greeting" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:0.25em;margin-bottom:16px;">Search</div>
-        <div class="title" style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,40px);font-style:italic;line-height:1.1;" id="search-title">Searching…</div>
+        <div class="title" style="font-family:'Instrument Serif',serif;font-size:clamp(28px,4vw,40px);font-style:normal;font-weight:700;line-height:1.1;" id="search-title">Searching…</div>
       </div>
 
       <div class="search-result-count" id="search-count">—</div>
@@ -1867,6 +2300,22 @@ body::before {
 
       <div class="stats-strip" id="stats-strip"></div>
 
+      <div class="dash-card full" style="margin-bottom: 24px;">
+        <div class="dash-card-head">
+          <div class="dash-card-kicker">Composition</div>
+          <div class="dash-card-title">Your experience mix at a glance</div>
+        </div>
+        <div class="donut-wrap" id="donut-wrap"></div>
+      </div>
+
+      <div class="dash-card full" style="margin-bottom: 24px;">
+        <div class="dash-card-head">
+          <div class="dash-card-kicker">Evolution over time</div>
+          <div class="dash-card-title">How your focus shifted year by year</div>
+        </div>
+        <div id="year-evo"></div>
+      </div>
+
       <div class="dash-grid">
         <div class="dash-card">
           <div class="dash-card-head">
@@ -1883,6 +2332,14 @@ body::before {
           </div>
           <div class="tag-cloud" id="tag-cloud"></div>
         </div>
+
+        <div class="dash-card full">
+          <div class="dash-card-head">
+            <div class="dash-card-kicker">Reflection depth</div>
+            <div class="dash-card-title">Where you process most deeply</div>
+          </div>
+          <div class="depth-bars" id="depth-bars"></div>
+        </div>
       </div>
     </section>
 
@@ -1890,6 +2347,27 @@ body::before {
 </div>
 
 <!-- Shortcuts modal -->
+<!-- Auth modal -->
+<div class="auth-overlay" id="auth-modal">
+  <div class="auth-card">
+    <div class="auth-kicker">Reflective Timeline</div>
+    <div class="auth-title">Back up your reflections.</div>
+    <div class="auth-sub">Sign in with your email to keep your entries safe across devices. We'll send you a magic link — no password needed.</div>
+
+    <form class="auth-form" id="auth-form" onsubmit="handleAuthSubmit(event)">
+      <input type="email" class="auth-input" id="auth-email" placeholder="you@email.com" required autocomplete="email">
+      <button type="submit" class="auth-btn" id="auth-submit">Send magic link</button>
+    </form>
+
+    <div id="auth-msg"></div>
+
+    <div class="auth-divider">or</div>
+    <button class="auth-local-btn" onclick="closeAuth()">Continue without signing in</button>
+
+    <div class="auth-footer">Local-only mode keeps everything in this browser.</div>
+  </div>
+</div>
+
 <div class="shortcuts-overlay" id="shortcuts-modal" onclick="if(event.target===this)closeShortcuts()">
   <div class="shortcuts-box">
     <h3>Keyboard shortcuts</h3>
@@ -1932,8 +2410,14 @@ body::before {
 </div>
 
 <script>
+// --- supabase ---
+const SUPABASE_URL = "https://kmkteuzmpnsjmayzvnuk.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtta3RldXptcG5zam1heXp2bnVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc2MDU3MjUsImV4cCI6MjA5MzE4MTcyNX0.PdQpM3lXqMjcTkRYii4zk44WFPP1zCPFr-9ISsxrqe8";
+const supa = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+let session = null;
+
 // --- data ---
-const STORAGE_KEY = "reflective-timeline-v2";
+const STORAGE_KEY = "reflective-timeline-v3";
 const DRAFT_KEY = "reflective-timeline-draft-v2";
 const BUILTIN_TYPES = ["Internship", "Project", "Travel", "Personal", "Role", "Education"];
 const TYPE_COLORS = {
@@ -1949,50 +2433,142 @@ const CUSTOM_TYPE_COLORS = ["var(--terracotta)", "var(--sage)", "var(--ochre)", 
 const SEED = [
   {
     id: "seed-1",
-    title: "Toyota Internship",
+    title: "Toyota HR Analytics Internship",
     startDate: "June 2025", endDate: "August 2025",
     date: "Summer 2025",
     year: 2025,
     type: "Internship",
-    tags: ["analytics", "strategy", "growth"],
-    r1: "The first time an HR director read my framing doc and said \"this is how we should be talking about this.\" Not the model. The framing. I kept thinking the hard part was the model, and the model wasn't the hard part.",
-    r2: "Translating what the data said into what the managers needed to hear without flattening the nuance. Every time I simplified, something real got lost.",
-    r3: "I enjoy ambiguity and ownership. I get bored the moment a problem becomes a checklist.",
+    tags: ["analytics", "ml", "hr", "ownership"],
+    r1: "The meeting where I showed the attrition survival curves to the VP of HR and watched her start taking notes on her phone. I had spent weeks worried nobody would care about tenure-by-shift breakdowns, and she cared more than anyone in the room.",
+    r2: "Getting comfortable telling HR managers things they didn't want to hear — that their favorite retention lever wasn't the one the data pointed to. The XGBoost was easy. The politics of a 26K-row truth was the hard part.",
+    r3: "I like work that sits between analytics and people. Pure modeling bores me fast. Pure stakeholder management wears me out. The crossover is where I actually wake up.",
     laterNotes: [
-      { id: "ln-1", text: "Re-reading this three months later — the \"framing doc over model\" insight keeps coming back. I think this is just how I see my work. Not a one-time lesson.", createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30 }
+      { id: "ln-1", text: "Re-reading this four months later — the 'framing doc over model' insight keeps coming back. I think this is just how I see work. Not a one-time lesson.", createdAt: Date.now() - 1000 * 60 * 60 * 24 * 30 }
     ],
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 120,
-    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 120
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 260,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 30
   },
   {
     id: "seed-2",
-    title: "Europe Trip",
-    startDate: "January 2026", endDate: "",
-    date: "January 2026",
-    year: 2026,
-    type: "Travel",
-    tags: ["solo", "growth", "reset"],
-    r1: "Eating alone in a small café in Lyon and realizing I was genuinely okay with my own company for the first time in a while.",
-    r2: "Being sick in a city where I didn't speak the language. Having to ask for help.",
-    r3: "Independence isn't the same as not needing anyone. I learned the difference.",
+    title: "Toyota Supplier BI Internship",
+    startDate: "May 2024", endDate: "August 2024",
+    date: "Summer 2024",
+    year: 2024,
+    type: "Internship",
+    tags: ["tps", "automation", "six-sigma", "supplier"],
+    r1: "My first week I thought Lean was a buzzword. By week eight I was rebuilding my own dashboards in TPS terms — muda, flow, takt — without thinking about it.",
+    r2: "Automating a refresh that someone had been doing manually for years. They were polite about the 95% cycle-time cut but I could tell part of them didn't want it to work.",
+    r3: "I'm drawn to systems that quietly take repetitive work off of people who didn't ask for that. But I need to stay honest about whose job I'm optimizing away and what happens to them after.",
     laterNotes: [],
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 60,
-    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 60
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 620,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 620
   },
   {
     id: "seed-3",
-    title: "SI 564 Final Project",
-    startDate: "September 2025", endDate: "December 2025",
-    date: "Fall 2025",
+    title: "Teaching Python & SQL at Ross / UMSI",
+    startDate: "August 2024", endDate: "",
+    date: "Aug 2024 – Present",
+    year: 2024,
+    type: "Role",
+    tags: ["teaching", "python", "sql", "r"],
+    r1: "The MBAn student who came into office hours absolutely convinced she was bad at R. I'd been that student a year earlier. Showed her a join three different ways until one clicked, and her face changed.",
+    r2: "Not over-explaining. My instinct is to teach the whole tree when someone only needs one branch. I watched their eyes glaze over in week two and had to retrain myself.",
+    r3: "I'm a better learner after I teach something than after I build it. I keep forgetting that and then re-discovering it in every new semester.",
+    laterNotes: [
+      { id: "ln-2", text: "Tried explaining pandas groupby three ways this week — same lesson. The ones who get it fastest are the ones who ask 'why' before 'how'.", createdAt: Date.now() - 1000 * 60 * 60 * 24 * 10 }
+    ],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 580,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 10
+  },
+  {
+    id: "seed-4",
+    title: "CitiBike Optimization Project",
+    startDate: "August 2024", endDate: "December 2024",
+    date: "Fall 2024",
+    year: 2024,
+    type: "Project",
+    tags: ["power-bi", "pricing", "client-work"],
+    r1: "Presenting the dynamic pricing recommendation to the CitiBike team and watching one person at the table start sketching rebalancing cost math on paper because our numbers surprised them. That's the only slide I remember.",
+    r2: "My teammates wanted a clean story. The data had a messy one. Finding a way to keep the mess without losing the narrative took longer than the actual analysis.",
+    r3: "I'd rather present a complicated truth than a clean half-truth, even when it costs me the room for a moment. I think that's going to define what roles I actually fit.",
+    laterNotes: [],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 480,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 480
+  },
+  {
+    id: "seed-5",
+    title: "Korean Drama SQL Database",
+    startDate: "January 2025", endDate: "April 2025",
+    date: "Spring 2025",
     year: 2025,
     type: "Project",
-    tags: ["analytics", "teamwork", "ownership"],
-    r1: "Picking the dataset nobody wanted. Then watching it produce the most interesting paper in the class.",
-    r2: "Convincing the team in week three instead of week one. Half the semester I was defending a choice I should have sold better at the start.",
-    r3: "I'll choose hard and unclear over easy and legible almost every time. I need to own that, not hide it.",
+    tags: ["sql", "database-design", "entertainment"],
+    r1: "Normalizing a schema I'd hacked together the night before and realizing my 'ugly' version was actually closer to what the queries needed. Undid half my own cleanup.",
+    r2: "Fighting the urge to over-engineer. I kept adding tables I didn't need because I'd just learned they existed.",
+    r3: "Newly learned tools are dangerous in my hands. I reach for them before I've asked whether the problem actually needs them.",
     laterNotes: [],
-    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 150,
-    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 150
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 360,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 360
+  },
+  {
+    id: "seed-6",
+    title: "UCAR — Internal VP",
+    startDate: "August 2022", endDate: "",
+    date: "Aug 2022 – Present",
+    year: 2022,
+    type: "Role",
+    tags: ["leadership", "community", "recruitment"],
+    r1: "The recruitment cycle my sophomore year — we went from 20 to 80+ members and I remember the exact moment in the info session where I stopped performing and just told people what I actually liked about this. The room shifted.",
+    r2: "Growing a club 4x means meeting people who aren't copies of you. Half my job turned into noticing when my default was exclusionary without me meaning it.",
+    r3: "I'm better at building a room than running one. I should stop pretending those are the same skill.",
+    laterNotes: [],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 1300,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 1300
+  },
+  {
+    id: "seed-7",
+    title: "Business+Tech Innovation Jam",
+    startDate: "November 2023", endDate: "December 2023",
+    date: "Fall 2023",
+    year: 2023,
+    type: "Project",
+    tags: ["pitch", "ed-tech", "strategy", "cLV"],
+    r1: "The moment we realized our pricing model didn't actually support the MAU curve we were promising, and I stayed up rebuilding the CLV deck at 2am the night before the finals round. Co-founder energy, minus the company.",
+    r2: "Defending a number I wasn't 100% sure of in front of judges who were. I couldn't fake my way through, so I answered what I did know and named what I didn't.",
+    r3: "Saying 'I don't know yet' is a skill. I didn't have it a year ago. I think I got it from being wrong in public once.",
+    laterNotes: [],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 870,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 870
+  },
+  {
+    id: "seed-8",
+    title: "Michigan Data Science Team",
+    startDate: "December 2023", endDate: "",
+    date: "Dec 2023 – Present",
+    year: 2023,
+    type: "Role",
+    tags: ["data-science", "accessibility", "team"],
+    r1: "Rewriting the alt-text generation pipeline because the existing one was wrong in a specific way that bothered me — screen readers got flattened summaries when they deserved structure. Nobody asked me to fix it.",
+    r2: "Caring more about accessibility than most of the team. Not pushing too hard about it, but also not letting it slide.",
+    r3: "Some of my best technical work has been driven by stubbornness about things nobody asked me to fix. That's a pattern, not a coincidence.",
+    laterNotes: [],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 840,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 840
+  },
+  {
+    id: "seed-9",
+    title: "Ross + UMSI dual degree",
+    startDate: "September 2022", endDate: "May 2026",
+    date: "2022 – 2026",
+    year: 2022,
+    type: "Education",
+    tags: ["ross", "umsi", "dual-degree", "identity"],
+    r1: "The first week of sophomore year when I signed the paperwork for the second degree and genuinely didn't know if I was being ambitious or just scared to pick one.",
+    r2: "Explaining to recruiters what a BBA + BSI even is. Half the time I'd rather skip the label and just show what I can actually do with it.",
+    r3: "I don't want to be the person who optimizes for legibility. I picked the harder-to-explain path on purpose and I should stop apologizing for it in coffee chats.",
+    laterNotes: [],
+    createdAt: Date.now() - 1000 * 60 * 60 * 24 * 1200,
+    updatedAt: Date.now() - 1000 * 60 * 60 * 24 * 1200
   }
 ];
 
@@ -2327,7 +2903,7 @@ function entryRowHTML(e, { query = "", showAge = false } = {}) {
         <div class="entry-title">${hl(e.title, query)}</div>
         <div class="entry-sub">
           <span class="chip type" data-t="${e.type}">${e.type}</span>
-          ${e.r1 ? `<span class="dot-sep">·</span><span style="font-style: italic; color: var(--ink-mid);">"${hl(truncate(e.r1, 90), query)}"</span>` : ""}
+          ${e.r1 ? `<span class="dot-sep">·</span><span style="color: var(--ink-mid);">"${hl(truncate(e.r1, 90), query)}"</span>` : ""}
         </div>
         ${noteTag}
       </div>
@@ -2518,6 +3094,7 @@ function saveEntry() {
   const year = parseYear(start || end);
   const displayDate = end && start && start !== end ? `${start} — ${end}` : (start || end || "");
 
+  let savedEntry;
   if (editingId) {
     const e = state.entries.find(x => x.id === editingId);
     if (e) {
@@ -2527,10 +3104,11 @@ function saveEntry() {
       e.type = state.currentType; e.tags = [...state.currentTags];
       e.r1 = r1; e.r2 = r2; e.r3 = r3;
       e.updatedAt = Date.now();
+      savedEntry = e;
     }
   } else {
-    state.entries.unshift({
-      id: "e-" + Date.now(),
+    savedEntry = {
+      id: newId(),
       title,
       startDate: start, endDate: end, date: displayDate,
       year,
@@ -2540,9 +3118,11 @@ function saveEntry() {
       laterNotes: [],
       createdAt: Date.now(),
       updatedAt: Date.now()
-    });
+    };
+    state.entries.unshift(savedEntry);
   }
   save();
+  if (savedEntry) pushEntryToCloud(savedEntry);
   clearDraft();
   status.textContent = "Saved";
   status.className = "save-status saved";
@@ -2689,12 +3269,13 @@ function addLaterNote() {
   if (!e) return;
   if (!e.laterNotes) e.laterNotes = [];
   e.laterNotes.push({
-    id: "ln-" + Date.now(),
+    id: newId(),
     text,
     createdAt: Date.now()
   });
   e.updatedAt = Date.now();
   save();
+  pushEntryToCloud(e);
   showDetail(currentDetailId);
 }
 
@@ -2704,6 +3285,7 @@ function deleteLaterNote(noteId) {
   if (!e) return;
   e.laterNotes = (e.laterNotes || []).filter(n => n.id !== noteId);
   save();
+  pushEntryToCloud(e);
   showDetail(currentDetailId);
 }
 
@@ -2711,6 +3293,7 @@ function deleteEntry(id) {
   if (!confirm("Delete this entry? This cannot be undone.")) return;
   state.entries = state.entries.filter(x => x.id !== id);
   save();
+  deleteEntryFromCloud(id);
   goBackFromDetail();
 }
 
@@ -2769,6 +3352,10 @@ function renderDashboard() {
     }).join("");
   }
 
+  renderDonut(distArr, entries.length);
+  renderYearEvo(entries);
+  renderDepth(entries);
+
   const tagFreq = {};
   entries.forEach(e => (e.tags || []).forEach(t => { tagFreq[t] = (tagFreq[t] || 0) + 1; }));
   const tagArr = Object.entries(tagFreq).sort((a, b) => b[1] - a[1]).slice(0, 20);
@@ -2782,6 +3369,140 @@ function renderDashboard() {
       return `<span class="cloud-tag" style="font-size: ${size}px">${escapeHTML(t)}</span>`;
     }).join("");
   }
+}
+
+function renderDonut(distArr, total) {
+  const host = document.getElementById("donut-wrap");
+  if (!host) return;
+  if (distArr.length === 0 || total === 0) {
+    host.innerHTML = `<div class="dash-empty">Add entries to see your composition.</div>`;
+    return;
+  }
+  const size = 200, r = 72, cx = size / 2, cy = size / 2;
+  const C = 2 * Math.PI * r;
+  let offset = 0;
+  const gap = 2;
+  const segs = distArr.map(([type, count]) => {
+    const frac = count / total;
+    const len = Math.max(0, C * frac - gap);
+    const color = TYPE_COLORS[type] || "var(--ink-mid)";
+    const seg = `<circle class="donut-seg" cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color}" stroke-width="28"
+      stroke-dasharray="${len} ${C - len}" stroke-dashoffset="${-offset}" transform="rotate(-90 ${cx} ${cy})">
+      <title>${escapeHTML(type)}: ${count} (${Math.round(frac * 100)}%)</title>
+    </circle>`;
+    offset += C * frac;
+    return seg;
+  }).join("");
+
+  const legend = distArr.map(([type, count]) => {
+    const pct = Math.round((count / total) * 100);
+    const color = TYPE_COLORS[type] || "var(--ink-mid)";
+    return `
+      <div class="donut-legend-row">
+        <span class="donut-swatch" style="background:${color}"></span>
+        <span class="donut-legend-name">${escapeHTML(type)}</span>
+        <span class="donut-legend-count">${count}</span>
+        <span class="donut-legend-pct">${pct}%</span>
+      </div>`;
+  }).join("");
+
+  host.innerHTML = `
+    <div class="donut-chart">
+      <svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}">
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--bg-muted)" stroke-width="28"/>
+        ${segs}
+      </svg>
+      <div class="donut-center">
+        <div class="donut-big">${total}</div>
+        <div class="donut-small">entries</div>
+      </div>
+    </div>
+    <div class="donut-legend">${legend}</div>
+  `;
+}
+
+function renderYearEvo(entries) {
+  const host = document.getElementById("year-evo");
+  if (!host) return;
+  if (entries.length === 0) {
+    host.innerHTML = `<div class="dash-empty">Add entries to see your year-by-year evolution.</div>`;
+    return;
+  }
+  const byYear = {};
+  entries.forEach(e => {
+    if (!byYear[e.year]) byYear[e.year] = {};
+    byYear[e.year][e.type] = (byYear[e.year][e.type] || 0) + 1;
+  });
+  const years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
+  const yearTotals = years.map(y => Object.values(byYear[y]).reduce((a, b) => a + b, 0));
+  const maxCount = Math.max(1, ...yearTotals);
+
+  const typeTotals = {};
+  entries.forEach(e => { typeTotals[e.type] = (typeTotals[e.type] || 0) + 1; });
+  const allTypes = Object.keys(typeTotals).sort((a, b) => typeTotals[b] - typeTotals[a]);
+
+  const barMaxH = 180;
+  const cols = years.map(year => {
+    const yearData = byYear[year];
+    const ytot = Object.values(yearData).reduce((a, b) => a + b, 0);
+    const h = (ytot / maxCount) * barMaxH;
+    const segs = allTypes.filter(t => yearData[t]).map(t => {
+      const segH = ytot > 0 ? (yearData[t] / ytot) * h : 0;
+      const color = TYPE_COLORS[t] || "var(--ink-mid)";
+      return `<div class="yevo-seg" style="height:${segH}px; background:${color}" title="${escapeHTML(t)}: ${yearData[t]}"></div>`;
+    }).join("");
+    return `
+      <div class="yevo-col">
+        <div class="yevo-bar" style="height:${barMaxH}px;">
+          <div class="yevo-stack" style="height:${h}px;">${segs}</div>
+        </div>
+        <div class="yevo-count">${ytot}</div>
+        <div class="yevo-year">${year}</div>
+      </div>
+    `;
+  }).join("");
+
+  const legend = allTypes.map(t => {
+    const color = TYPE_COLORS[t] || "var(--ink-mid)";
+    return `<div class="yevo-legend-item"><span class="donut-swatch" style="background:${color}"></span>${escapeHTML(t)}</div>`;
+  }).join("");
+
+  host.innerHTML = `
+    <div class="yevo-legend">${legend}</div>
+    <div class="yevo-chart">${cols}</div>
+  `;
+}
+
+function renderDepth(entries) {
+  const host = document.getElementById("depth-bars");
+  if (!host) return;
+  if (entries.length === 0) {
+    host.innerHTML = `<div class="dash-empty">Depth emerges once you've written a few reflections.</div>`;
+    return;
+  }
+  const byType = {};
+  entries.forEach(e => {
+    const words = ((e.r1 || "") + " " + (e.r2 || "") + " " + (e.r3 || "")).trim().split(/\s+/).filter(Boolean).length;
+    if (!byType[e.type]) byType[e.type] = { total: 0, count: 0 };
+    byType[e.type].total += words;
+    byType[e.type].count += 1;
+  });
+  const rows = Object.entries(byType).map(([type, d]) => ({
+    type, avg: Math.round(d.total / d.count), count: d.count
+  })).sort((a, b) => b.avg - a.avg);
+
+  const maxAvg = Math.max(1, ...rows.map(r => r.avg));
+  host.innerHTML = rows.map(({ type, avg, count }) => {
+    const pct = (avg / maxAvg) * 100;
+    const color = TYPE_COLORS[type] || "var(--ink-mid)";
+    return `
+      <div class="depth-row">
+        <div class="depth-label">${escapeHTML(type)}</div>
+        <div class="depth-bar-track"><div class="depth-bar-fill" style="width:${pct}%; background:${color}"></div></div>
+        <div class="depth-value">${avg}<span class="unit">avg</span></div>
+      </div>
+    `;
+  }).join("");
 }
 
 function generateInsight(entries) {
@@ -2933,6 +3654,252 @@ function renderSearchResults() {
     return;
   }
   container.innerHTML = matches.map(e => entryRowHTML(e, { query: currentSearchQuery })).join("");
+}
+
+// --- auth & cloud sync ---
+function newId() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "x-" + Date.now() + "-" + Math.random().toString(36).slice(2, 10);
+}
+
+function openAuth() {
+  document.getElementById("auth-modal").classList.add("open");
+  setTimeout(() => document.getElementById("auth-email")?.focus(), 50);
+}
+function closeAuth() {
+  document.getElementById("auth-modal").classList.remove("open");
+  document.getElementById("auth-msg").innerHTML = "";
+}
+
+async function handleAuthSubmit(evt) {
+  evt.preventDefault();
+  if (!supa) return showAuthMsg("Supabase didn't load. Check your connection.", true);
+  const email = document.getElementById("auth-email").value.trim();
+  if (!email) return;
+  const btn = document.getElementById("auth-submit");
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+  const { error } = await supa.auth.signInWithOtp({
+    email,
+    options: { emailRedirectTo: window.location.href }
+  });
+  btn.disabled = false;
+  btn.textContent = "Send magic link";
+  if (error) {
+    showAuthMsg(error.message, true);
+  } else {
+    showAuthMsg(`Check ${email} for the magic link. You can close this tab — clicking the link will bring you back signed in.`);
+  }
+}
+
+function showAuthMsg(text, isError) {
+  const el = document.getElementById("auth-msg");
+  el.innerHTML = `<div class="auth-msg ${isError ? 'error' : ''}">${escapeHTML(text)}</div>`;
+}
+
+async function signOut() {
+  if (!supa) return;
+  await supa.auth.signOut();
+  session = null;
+  // Clear cloud-only state and fall back to local
+  state = load();
+  renderUserChip();
+  renderAll();
+}
+
+function setSyncStatus(status) {
+  const el = document.querySelector(".user-chip .sync-status");
+  if (!el) return;
+  el.className = "sync-status " + status;
+  el.textContent = status === "syncing" ? "Syncing…" :
+                   status === "synced"  ? "Synced" :
+                   status === "error"   ? "Sync error" : "";
+}
+
+function renderUserChip() {
+  const chip = document.getElementById("user-chip");
+  if (!chip) return;
+  if (session && session.user) {
+    chip.innerHTML = `
+      <div class="email">${escapeHTML(session.user.email)}</div>
+      <div class="sync-status synced">Synced</div>
+      <button class="signout" onclick="signOut()">Sign out</button>
+    `;
+  } else {
+    chip.innerHTML = `<button class="signin" onclick="openAuth()">Sign in to back up</button>`;
+  }
+}
+
+async function syncFromCloud() {
+  if (!supa || !session) return;
+  setSyncStatus("syncing");
+  try {
+    const [{ data: entries, error: e1 }, { data: notes, error: e2 }, { data: types, error: e3 }] = await Promise.all([
+      supa.from("entries").select("*").order("created_at", { ascending: false }),
+      supa.from("later_notes").select("*").order("created_at", { ascending: true }),
+      supa.from("custom_types").select("*")
+    ]);
+    if (e1 || e2 || e3) throw new Error((e1||e2||e3).message);
+
+    const noteMap = {};
+    (notes || []).forEach(n => {
+      if (!noteMap[n.entry_id]) noteMap[n.entry_id] = [];
+      noteMap[n.entry_id].push({
+        id: n.id,
+        text: n.text,
+        createdAt: new Date(n.created_at).getTime()
+      });
+    });
+
+    state.entries = (entries || []).map(e => ({
+      id: e.id,
+      title: e.title,
+      startDate: e.start_date || "",
+      endDate: e.end_date || "",
+      date: e.date || "",
+      year: e.year,
+      type: e.type,
+      tags: e.tags || [],
+      r1: e.r1 || "",
+      r2: e.r2 || "",
+      r3: e.r3 || "",
+      laterNotes: noteMap[e.id] || [],
+      createdAt: new Date(e.created_at).getTime(),
+      updatedAt: new Date(e.updated_at).getTime()
+    }));
+    state.customTypes = (types || []).map(t => t.name);
+
+    setSyncStatus("synced");
+    renderAll();
+  } catch (err) {
+    console.error("syncFromCloud failed:", err);
+    setSyncStatus("error");
+  }
+}
+
+async function pushEntryToCloud(entry) {
+  if (!supa || !session) return;
+  setSyncStatus("syncing");
+  try {
+    const row = {
+      id: entry.id,
+      user_id: session.user.id,
+      title: entry.title || "Untitled",
+      start_date: entry.startDate || null,
+      end_date: entry.endDate || null,
+      date: entry.date || null,
+      year: entry.year ?? null,
+      type: entry.type || null,
+      tags: entry.tags || [],
+      r1: entry.r1 || null,
+      r2: entry.r2 || null,
+      r3: entry.r3 || null,
+      updated_at: new Date(entry.updatedAt || Date.now()).toISOString()
+    };
+    const { error } = await supa.from("entries").upsert(row);
+    if (error) throw error;
+
+    // Sync later notes for this entry: replace-all approach
+    await supa.from("later_notes").delete().eq("entry_id", entry.id);
+    const noteRows = (entry.laterNotes || []).map(n => ({
+      id: n.id,
+      entry_id: entry.id,
+      user_id: session.user.id,
+      text: n.text,
+      created_at: new Date(n.createdAt).toISOString()
+    }));
+    if (noteRows.length) {
+      const { error: ne } = await supa.from("later_notes").insert(noteRows);
+      if (ne) throw ne;
+    }
+    setSyncStatus("synced");
+  } catch (err) {
+    console.error("pushEntryToCloud failed:", err);
+    setSyncStatus("error");
+  }
+}
+
+async function deleteEntryFromCloud(id) {
+  if (!supa || !session) return;
+  setSyncStatus("syncing");
+  try {
+    const { error } = await supa.from("entries").delete().eq("id", id);
+    if (error) throw error;
+    setSyncStatus("synced");
+  } catch (err) {
+    console.error("deleteEntryFromCloud failed:", err);
+    setSyncStatus("error");
+  }
+}
+
+async function syncCustomTypesToCloud() {
+  if (!supa || !session) return;
+  try {
+    await supa.from("custom_types").delete().eq("user_id", session.user.id);
+    if ((state.customTypes || []).length) {
+      const rows = state.customTypes.map(name => ({ user_id: session.user.id, name }));
+      await supa.from("custom_types").insert(rows);
+    }
+  } catch (err) { console.error("syncCustomTypesToCloud:", err); }
+}
+
+async function migrateLocalToCloud() {
+  if (!supa || !session) return;
+  // Only migrate if cloud is empty AND local has entries with non-seed UUIDs
+  const { data: existing } = await supa.from("entries").select("id").limit(1);
+  if (existing && existing.length) return; // cloud already has data
+
+  const localRaw = localStorage.getItem(STORAGE_KEY);
+  if (!localRaw) return;
+  let parsed;
+  try { parsed = JSON.parse(localRaw); } catch { return; }
+  if (!parsed.entries || !parsed.entries.length) return;
+
+  // Re-id entries that have non-uuid ids (e.g. seed-1)
+  const uuidRe = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  parsed.entries.forEach(e => {
+    if (!uuidRe.test(e.id)) e.id = newId();
+    (e.laterNotes || []).forEach(n => { if (!uuidRe.test(n.id)) n.id = newId(); });
+  });
+
+  for (const e of parsed.entries) {
+    await pushEntryToCloud(e);
+  }
+  if (parsed.customTypes && parsed.customTypes.length) {
+    state.customTypes = parsed.customTypes;
+    await syncCustomTypesToCloud();
+  }
+  await syncFromCloud();
+}
+
+async function initAuth() {
+  if (!supa) return;
+  const { data } = await supa.auth.getSession();
+  if (data && data.session) {
+    session = data.session;
+    renderUserChip();
+    await migrateLocalToCloud();
+    await syncFromCloud();
+  }
+  supa.auth.onAuthStateChange(async (event, newSession) => {
+    if (event === "SIGNED_IN" && newSession && (!session || session.user.id !== newSession.user.id)) {
+      session = newSession;
+      closeAuth();
+      renderUserChip();
+      await migrateLocalToCloud();
+      await syncFromCloud();
+    } else if (event === "SIGNED_OUT") {
+      session = null;
+      renderUserChip();
+    }
+  });
+}
+
+function renderAll() {
+  renderHome();
+  if (typeof renderTimeline === "function") renderTimeline();
+  if (typeof renderDashboard === "function") renderDashboard();
+  updateSidebarCounts();
 }
 
 // --- export / import ---
@@ -3139,6 +4106,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.addEventListener("input", () => updateWordCount(inId, outId));
   });
   document.addEventListener("keydown", handleGlobalKey);
+  renderUserChip();
+  initAuth();
 });
 
 renderHome();
