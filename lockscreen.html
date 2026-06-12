@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#1a1520">
+<title>잠금화면 메모</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+:root {
+  --bg1: #1a1520;
+  --bg2: #2a1f35;
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-strong: rgba(255,255,255,0.14);
+  --text: rgba(255,255,255,0.95);
+  --text-mid: rgba(255,255,255,0.65);
+  --text-dim: rgba(255,255,255,0.35);
+  --accent: #c98b6b;
+  --accent-soft: rgba(201,139,107,0.25);
+  --accent-dim: rgba(201,139,107,0.12);
+  --memo-bg: rgba(255,255,255,0.06);
+  --memo-border: rgba(255,255,255,0.1);
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg1);
+  color: var(--text);
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* 배경 그라디언트 */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(140,86,114,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 85%, rgba(107,128,104,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(42,31,53,1) 0%, rgba(26,21,32,1) 100%);
+}
+
+.bg-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* 잠금화면 레이아웃 */
+.lockscreen {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: env(safe-area-inset-top, 48px) 24px env(safe-area-inset-bottom, 28px);
+  gap: 0;
+}
+
+/* 시계 영역 */
+.clock-section {
+  width: 100%;
+  text-align: center;
+  padding-top: 12px;
+  margin-bottom: 32px;
+  flex-shrink: 0;
+}
+
+.time-display {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(72px, 20vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-shadow: 0 2px 32px rgba(0,0,0,0.4);
+  margin-bottom: 6px;
+}
+
+.date-display {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-mid);
+  letter-spacing: 0.02em;
+}
+
+/* 메모 영역 */
+.memo-section {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+.memo-section::-webkit-scrollbar { display: none; }
+
+/* 메모 카드 */
+.memo-card {
+  background: var(--memo-bg);
+  border: 1px solid var(--memo-border);
+  border-radius: 18px;
+  padding: 18px 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.memo-card:active { transform: scale(0.98); }
+
+.memo-card:hover {
+  background: var(--glass-strong);
+}
+
+.memo-card.pinned {
+  border-color: rgba(201,139,107,0.35);
+  background: rgba(201,139,107,0.08);
+}
+
+.memo-pin {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.memo-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.memo-text.empty {
+  color: var(--text-dim);
+  font-style: normal;
+}
+
+.memo-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.memo-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.memo-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.memo-action-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.memo-action-btn:hover {
+  color: var(--text-mid);
+  background: var(--glass);
+}
+
+.memo-action-btn.pin-btn.active {
+  color: var(--accent);
+}
+
+/* 추가 버튼 */
+.add-section {
+  width: 100%;
+  padding-top: 10px;
+  flex-shrink: 0;
+}
+
+.add-btn {
+  width: 100%;
+  background: var(--glass);
+  border: 1px dashed var(--glass-border);
+  border-radius: 18px;
+  padding: 16px 20px;
+  color: var(--text-dim);
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.add-btn:hover, .add-btn:active {
+  background: var(--glass-strong);
+  border-style: solid;
+  color: var(--text-mid);
+}
+
+.add-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  flex-shrink: 0;
+}
+
+/* 편집 모달 */
+.edit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0;
+}
+
+.edit-overlay.open {
+  display: flex;
+  animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.edit-sheet {
+  width: 100%;
+  max-width: 600px;
+  background: linear-gradient(180deg, #2e2438 0%, #231c30 100%);
+  border-top: 1px solid var(--glass-border);
+  border-radius: 24px 24px 0 0;
+  padding: 20px 20px calc(env(safe-area-inset-bottom, 20px) + 16px);
+  animation: sheetUp 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes sheetUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.edit-handle {
+  width: 36px;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.edit-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.edit-close {
+  background: var(--glass);
+  border: none;
+  color: var(--text-mid);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.edit-close:hover { background: var(--glass-strong); }
+
+.edit-textarea {
+  width: 100%;
+  min-height: 140px;
+  max-height: 280px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 16px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  resize: none;
+  transition: border-color 0.2s;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.edit-textarea:focus {
+  outline: none;
+  border-color: rgba(201,139,107,0.5);
+}
+
+.edit-textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.edit-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.edit-save {
+  flex: 1;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.edit-save:hover { background: #b87050; }
+
+.edit-delete {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--glass-border);
+  color: rgba(255,100,100,0.7);
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: none;
+}
+
+.edit-delete.visible { display: block; }
+.edit-delete:hover { background: rgba(255,60,60,0.1); color: rgba(255,100,100,1); }
+
+.edit-char-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: right;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+.edit-char-count.over { color: rgba(255,100,100,0.8); }
+
+/* 빈 상태 */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-dim);
+  display: none;
+}
+
+.empty-state.show { display: block; }
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}
+
+.empty-text {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  color: var(--text-dim);
+}
+
+.empty-sub {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  opacity: 0.6;
+}
+
+/* 상태 메시지 토스트 */
+.toast {
+  position: fixed;
+  bottom: calc(env(safe-area-inset-bottom, 20px) + 80px);
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: var(--text);
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* 반응형 - 태블릿/데스크톱에서도 잘 보이게 */
+@media (min-width: 480px) {
+  .lockscreen {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-height: 800px) {
+  .clock-section { margin-bottom: 48px; }
+}
+
+@media (max-height: 600px) {
+  .time-display { font-size: 60px; }
+  .clock-section { margin-bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="bg-noise"></div>
+
+<div class="lockscreen">
+  <!-- 시계 -->
+  <div class="clock-section">
+    <div class="time-display" id="timeDisplay">00:00</div>
+    <div class="date-display" id="dateDisplay">날짜 로딩 중...</div>
+  </div>
+
+  <!-- 메모 리스트 -->
+  <div class="memo-section" id="memoSection">
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">📝</div>
+      <div class="empty-text">메모가 없어요</div>
+      <div class="empty-sub">아래 버튼을 눌러 첫 메모를 추가해보세요</div>
+    </div>
+  </div>
+
+  <!-- 추가 버튼 -->
+  <div class="add-section">
+    <button class="add-btn" id="addBtn" onclick="openEdit(null)">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      새 메모 추가
+    </button>
+  </div>
+</div>
+
+<!-- 편집 모달 -->
+<div class="edit-overlay" id="editOverlay" onclick="handleOverlayClick(event)">
+  <div class="edit-sheet" id="editSheet">
+    <div class="edit-handle"></div>
+    <div class="edit-header">
+      <div class="edit-title" id="editTitle">새 메모</div>
+      <button class="edit-close" onclick="closeEdit()">✕</button>
+    </div>
+    <textarea class="edit-textarea" id="editTextarea"
+      placeholder="메모를 입력하세요..."
+      maxlength="500"
+      oninput="updateCharCount()"></textarea>
+    <div class="edit-char-count" id="charCount">0 / 500</div>
+    <div class="edit-footer">
+      <button class="edit-delete" id="editDelete" onclick="deleteMemo()">삭제</button>
+      <button class="edit-save" onclick="saveMemo()">저장</button>
+    </div>
+  </div>
+</div>
+
+<!-- 토스트 메시지 -->
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = 'lockscreen_memos_v1';
+let memos = [];
+let editingId = null;
+
+// 데이터 로드
+function loadMemos() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    memos = raw ? JSON.parse(raw) : [];
+  } catch {
+    memos = [];
+  }
+}
+
+function saveMemos() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(memos));
+}
+
+function generateId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+}
+
+// 시계
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('timeDisplay').textContent = `${h}:${m}`;
+
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+  const month = now.getMonth() + 1;
+  const date = now.getDate();
+  const day = days[now.getDay()];
+  document.getElementById('dateDisplay').textContent =
+    `${now.getFullYear()}년 ${month}월 ${date}일 ${day}요일`;
+}
+
+// 메모 렌더
+function renderMemos() {
+  const section = document.getElementById('memoSection');
+  const empty = document.getElementById('emptyState');
+
+  // 기존 메모 카드 제거 (empty state 제외)
+  [...section.querySelectorAll('.memo-card')].forEach(el => el.remove());
+
+  // 핀 고정 먼저, 최신순
+  const sorted = [...memos].sort((a, b) => {
+    if (a.pinned && !b.pinned) return -1;
+    if (!a.pinned && b.pinned) return 1;
+    return b.createdAt - a.createdAt;
+  });
+
+  if (sorted.length === 0) {
+    empty.classList.add('show');
+  } else {
+    empty.classList.remove('show');
+    sorted.forEach(memo => {
+      const card = buildMemoCard(memo);
+      section.appendChild(card);
+    });
+  }
+}
+
+function buildMemoCard(memo) {
+  const card = document.createElement('div');
+  card.className = 'memo-card' + (memo.pinned ? ' pinned' : '');
+  card.dataset.id = memo.id;
+
+  const timeStr = formatRelativeTime(memo.updatedAt || memo.createdAt);
+
+  card.innerHTML = `
+    ${memo.pinned ? '<div class="memo-pin">📌</div>' : ''}
+    <div class="memo-text">${escapeHtml(memo.text)}</div>
+    <div class="memo-footer">
+      <div class="memo-time">${timeStr}</div>
+      <div class="memo-actions">
+        <button class="memo-action-btn pin-btn ${memo.pinned ? 'active' : ''}"
+          title="${memo.pinned ? '고정 해제' : '고정'}"
+          onclick="togglePin(event, '${memo.id}')">
+          ${memo.pinned ? '📌' : '📍'}
+        </button>
+        <button class="memo-action-btn"
+          title="편집"
+          onclick="openEdit('${memo.id}')">
+          ✏️
+        </button>
+      </div>
+    </div>
+  `;
+
+  card.addEventListener('click', (e) => {
+    if (!e.target.closest('.memo-action-btn')) {
+      openEdit(memo.id);
+    }
+  });
+
+  return card;
+}
+
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function formatRelativeTime(ts) {
+  const diff = Date.now() - ts;
+  const min = Math.floor(diff / 60000);
+  const hour = Math.floor(diff / 3600000);
+  const day = Math.floor(diff / 86400000);
+
+  if (min < 1) return '방금 전';
+  if (min < 60) return `${min}분 전`;
+  if (hour < 24) return `${hour}시간 전`;
+  if (day < 7) return `${day}일 전`;
+
+  const d = new Date(ts);
+  return `${d.getMonth() + 1}/${d.getDate()}`;
+}
+
+// 편집 모달
+function openEdit(id) {
+  editingId = id;
+  const overlay = document.getElementById('editOverlay');
+  const textarea = document.getElementById('editTextarea');
+  const deleteBtn = document.getElementById('editDelete');
+  const title = document.getElementById('editTitle');
+
+  if (id) {
+    const memo = memos.find(m => m.id === id);
+    if (!memo) return;
+    textarea.value = memo.text;
+    title.textContent = '메모 편집';
+    deleteBtn.classList.add('visible');
+  } else {
+    textarea.value = '';
+    title.textContent = '새 메모';
+    deleteBtn.classList.remove('visible');
+  }
+
+  updateCharCount();
+  overlay.classList.add('open');
+  setTimeout(() => textarea.focus(), 350);
+}
+
+function closeEdit() {
+  document.getElementById('editOverlay').classList.remove('open');
+  editingId = null;
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('editOverlay')) closeEdit();
+}
+
+function updateCharCount() {
+  const textarea = document.getElementById('editTextarea');
+  const count = document.getElementById('charCount');
+  const len = textarea.value.length;
+  count.textContent = `${len} / 500`;
+  count.classList.toggle('over', len > 490);
+}
+
+function saveMemo() {
+  const text = document.getElementById('editTextarea').value.trim();
+  if (!text) {
+    showToast('내용을 입력해주세요');
+    return;
+  }
+
+  if (editingId) {
+    const idx = memos.findIndex(m => m.id === editingId);
+    if (idx !== -1) {
+      memos[idx].text = text;
+      memos[idx].updatedAt = Date.now();
+    }
+    showToast('메모가 수정되었어요');
+  } else {
+    memos.push({
+      id: generateId(),
+      text,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      pinned: false
+    });
+    showToast('메모가 추가되었어요');
+  }
+
+  saveMemos();
+  renderMemos();
+  closeEdit();
+}
+
+function deleteMemo() {
+  if (!editingId) return;
+  if (!confirm('이 메모를 삭제할까요?')) return;
+  memos = memos.filter(m => m.id !== editingId);
+  saveMemos();
+  renderMemos();
+  closeEdit();
+  showToast('메모가 삭제되었어요');
+}
+
+function togglePin(e, id) {
+  e.stopPropagation();
+  const memo = memos.find(m => m.id === id);
+  if (!memo) return;
+  memo.pinned = !memo.pinned;
+  saveMemos();
+  renderMemos();
+  showToast(memo.pinned ? '메모를 고정했어요 📌' : '고정을 해제했어요');
+}
+
+// 토스트
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+// 키보드 이벤트
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeEdit();
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+    if (document.getElementById('editOverlay').classList.contains('open')) {
+      saveMemo();
+    }
+  }
+});
+
+// 스와이프로 모달 닫기
+let touchStartY = 0;
+document.getElementById('editSheet').addEventListener('touchstart', (e) => {
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.getElementById('editSheet').addEventListener('touchmove', (e) => {
+  const dy = e.touches[0].clientY - touchStartY;
+  if (dy > 60) closeEdit();
+}, { passive: true });
+
+// 초기화
+loadMemos();
+renderMemos();
+updateClock();
+setInterval(updateClock, 1000);
+setInterval(renderMemos, 60000); // 상대 시간 갱신
+</script>
+</body>
+</html>
